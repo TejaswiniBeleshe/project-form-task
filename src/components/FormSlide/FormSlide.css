@@ -1,0 +1,11 @@
+slider-container{
+    position: relative;
+}
+.slide-btns{
+    width: 100%;
+    position: fixed;
+    bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid red;
+}
