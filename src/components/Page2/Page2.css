@@ -1,0 +1,15 @@
+.nav-tabs .nav-link.active {
+    background-color: #6195e8 !important; /* Active tab color */
+    color: white;
+    border: #218838;
+
+}
+.nav-tabs .nav-link {
+    color: black;
+    font-weight: bold;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+    padding: 1rem !important;
+}
+
