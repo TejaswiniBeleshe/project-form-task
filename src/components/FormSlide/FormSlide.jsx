@@ -9,9 +9,10 @@ import Page3 from "../Page3/Page3";
 import Page4 from "../Page4/Page4";
 
 function PreviousNextMethods() {
-  const [dataOfPage1,setDataOfPage1] = useState({projectName:"",client:"",dates:"",notes:""})
+  const [dataOfPage1,setDataOfPage1] = useState({projectName:"",client:"",sDate:"",eDate:"",notes:""})
   let sliderRef = useRef(null);
   const next = () => {
+    console.log(dataOfPage1)
     sliderRef.slickNext();
   };
   const previous = () => {
