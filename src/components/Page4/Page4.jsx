@@ -2,7 +2,7 @@ import "./Page4.css"
 import { SlPeople } from "react-icons/sl";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
-const Page4 = function(){
+const Page4 = function({dataOfPage4,setDataOfPage4}){
     return(
         <div className="manage-container">
             <h2>Who can mange Projects</h2>
@@ -10,20 +10,20 @@ const Page4 = function(){
 
             <div className="manage-options">
 
-                <div className="each-option">
+                <div className={`each-option ${dataOfPage4.projectAccess === 'everyone'?"selected":"" }`} onClick={()=>setDataOfPage4({...dataOfPage4,projectAccess:"everyone"})}>
                        <div className="opt-img">
                     <FaPeopleGroup size={50}/>
 
                     </div>
 
-                    <div className="opt-discription">
+                    <div className="opt-discription" >
                         <h5>Everyone</h5>
                         <p>All users can how to see it,but guests connot access the projects</p>
                     </div>
 
                 </div>
 
-                <div className="each-option">
+                <div className={`each-option ${dataOfPage4.projectAccess === 'admin'?"selected":"" }`} onClick={()=>setDataOfPage4({...dataOfPage4,projectAccess:"admin"})}>
 
                     <div className="opt-img">
                     <IoPersonCircleOutline size={50}/>
@@ -36,7 +36,7 @@ const Page4 = function(){
 
                 </div>
 
-                <div className="each-option">
+                <div className={`each-option ${dataOfPage4.projectAccess === 'specific people'?"selected":"" }`} onClick={()=>setDataOfPage4({...dataOfPage4,projectAccess:"specific people"})}>
                 <div className="opt-img">
                     <SlPeople size={50}/>
 
@@ -50,6 +50,7 @@ const Page4 = function(){
                 </div>
 
             </div>
+            {!dataOfPage4.projectAccess?<p className="error-text">{dataOfPage4.errorOfProjectAccess}</p>:""}
 
         </div>
     )

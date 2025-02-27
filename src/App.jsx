@@ -1,13 +1,17 @@
 
+import { useEffect, useState } from 'react';
 import './App.css'
 import FormSlide from './components/FormSlide/FormSlide.jsx'
-{
-  /* The following line can be included in your src/index.js or App.js file */
-}
+import Home from './components/Home/Home.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// let data = JSON.parse(localStorage.getItem('Data'))
+// let res = data.projectName?true:false
+// console.log(data)
 function App() {
-
+  // let [exist,setExist] = useState(res)
+   
+  // console.log(res)
 
   return (
     <div className='App'>

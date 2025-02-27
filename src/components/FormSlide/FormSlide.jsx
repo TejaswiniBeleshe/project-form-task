@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Page3 from "../Page3/Page3";
 import Page4 from "../Page4/Page4";
+import Home from "../Home/Home";
 
 
 
@@ -16,6 +17,7 @@ function FormSlide() {
   const [dataOfPage2,setDataOfPage2] = useState({hourlyRate:"",budgetType:"",resetEveryMonth:false,sendMail:false,budgetPercent:""})
   const [errorOfPage2,setErrorOfPage2] = useState({hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""})
   const [dataOfPage3,setDataOfPage3] = useState({selectedView:"",errorOfSelectedView:""});
+  const [dataOfPage4,setDataOfPage4] = useState({projectAccess:"",errorOfProjectAccess:""})
   
   const [currentpage,setCurrentPage] = useState(0)
   let sliderRef = useRef(null);
@@ -75,19 +77,19 @@ function FormSlide() {
 
   const next = () => {
 
-    // if(currentpage === 0){
-    //   let errors = validateDataOfPage1(dataOfPage1)
-    //   if(errors.nameErr || errors.clientErr || errors.dateErr){
-    //     return
-    //  }
-    // }
+    if(currentpage === 0){
+      let errors = validateDataOfPage1(dataOfPage1)
+      if(errors.nameErr || errors.clientErr || errors.dateErr){
+        return
+     }
+    }
 
-    // if(currentpage == 1){
-    //   let errors = validateDataOfPage2(dataOfPage2);
-    //   if(errors.hourlyRateErr || errors.budgetTypeErr || errors.budgetPercentErr){
-    //     return
-    //   }
-    // }
+    if(currentpage == 1){
+      let errors = validateDataOfPage2(dataOfPage2);
+      if(errors.hourlyRateErr || errors.budgetTypeErr || errors.budgetPercentErr){
+        return
+      }
+    }
 
     if(currentpage == 2){
       if(!dataOfPage3.selectedView){
@@ -96,6 +98,13 @@ function FormSlide() {
         
       }
       // return
+    }
+
+    if(currentpage == 3){
+      if(!dataOfPage4.projectAccess){
+        setDataOfPage4({dataOfPage4,errorOfProjectAccess:"Please selected who all can access"})
+        return
+      }
     }
     
     
@@ -140,21 +149,19 @@ function FormSlide() {
           <Page3 dataOfPage3={dataOfPage3} setDataOfPage3={setDataOfPage3}/>
         </div>
         <div key={4}>
-          <Page4/>
+          <Page4 dataOfPage4={dataOfPage4} setDataOfPage4={setDataOfPage4}/>
         </div>
         <div key={5}>
-          <h3>5</h3>
+          <Home dataOfPage1={dataOfPage1} dataOfPage2={dataOfPage2} dataOfPage3={dataOfPage3} dataOfPage4={dataOfPage4}/>
         </div>
-        <div key={6}>
-          <h3>6</h3>
-        </div>
+
       </Slider>
       <div className="slide-btns">
         <button className="button" onClick={previous}>
           Previous
         </button>
         <button className="button" onClick={next}>
-          Next
+          {currentpage === 3?"Create":"Next"}
         </button>
       </div>
     </div>
