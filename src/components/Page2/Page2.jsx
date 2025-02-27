@@ -13,6 +13,9 @@ const Page2 = function ({dataOfPage2,setDataOfPage2,errorOfPage2,setErrorOfPage2
     //     console.log(resetEveryMonth)
 
     // },[resetEveryMonth])
+    const handleHideError = ()=>{
+        setErrorOfPage2({hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""})
+    }
     return (
         <div className="page2-container">
             <h4 className="text-center">Project type</h4>
@@ -28,45 +31,56 @@ const Page2 = function ({dataOfPage2,setDataOfPage2,errorOfPage2,setErrorOfPage2
             >
                 {/* Time & Materials Tab */}
                 <Tab eventKey="time-materials" title="Time & Materials">
-                    <div className="section">
+                    <Form.Group className="section">
                         <h5>Hourly</h5>
                         <p className="description">We need hourly rates to track your project’s billable amount.</p>
-                        <Form.Select>
+                        <Form.Select onClick={handleHideError}>
+                        
                             <option value="project-hourly-rate">Project Hourly Rate</option>
                         </Form.Select>
                         <InputGroup className="mt-2">
                             <InputGroup.Text>₹</InputGroup.Text>
-                            <Form.Control type="number" placeholder="12,678.00" value={hourlyRate} onChange={(e)=>setDataOfPage2({...dataOfPage2, hourlyRate:e.target.value})}/>
+                            <Form.Control type="number" placeholder="12,678.00" value={hourlyRate} onChange={(e)=>setDataOfPage2({...dataOfPage2, hourlyRate:e.target.value})} onClick={handleHideError}/>
                         </InputGroup>
-                    </div>
+                        {errorOfPage2.hourlyRateErr?<p className='error-text'>{errorOfPage2.hourlyRateErr}</p>:""}
+                    </Form.Group>
 
-                    <div className="section">
+                    <Form.Group className="section">
                         <h5>Budget</h5>
                         <p className="description">We need hourly rates to track your project’s billable amount.</p>
-                        <Form.Select value={budgetType} onChange={(e)=>setDataOfPage2({...dataOfPage2, budgetType:e.target.value})}>
+                        <Form.Select value={budgetType} onChange={(e)=>setDataOfPage2({...dataOfPage2, budgetType:e.target.value})} onClick={handleHideError}>
                             <option value="">Select budget type</option>
                             <option value="hours-per-person">Hours per Person</option>
                             <option value="hours-per-team">Hours per team</option>
 
                         </Form.Select>
+                        {errorOfPage2.budgetTypeErr?<p className='error-text'>{errorOfPage2.budgetTypeErr}</p>:""}
                         <Form.Check
                             type="checkbox"
                             label="Budget resets every month"
                             id="checkbox-1"
                             className="mt-2"
-                            onClick={()=>setDataOfPage2({...dataOfPage2,resetEveryMonth:!resetEveryMonth})}
+                            
+                            onClick={()=>{
+                                setDataOfPage2({...dataOfPage2,resetEveryMonth:!resetEveryMonth})
+                            }}
                         />
                         <Form.Check
                             type="checkbox"
                             label="Send email alerts if project exceeds"
                             className="mt-2"
-                            onClick={()=>setDataOfPage2({...dataOfPage2,sendMail:!sendMail})}
+        
+                            onClick={()=>{
+                                
+                                setDataOfPage2({...dataOfPage2,sendMail:!sendMail})}}
                         />
                         <InputGroup className="mt-2">
-                            <Form.Control type="number" placeholder="80.00" value={budgetPercent} onChange={(e)=>setDataOfPage2({...dataOfPage2,budgetPercent:e.target.value})}/>
+                            <Form.Control type="number" disabled={!sendMail} placeholder="80.00" value={budgetPercent} onChange={(e)=>setDataOfPage2({...dataOfPage2,budgetPercent:e.target.value})}/>
                             <InputGroup.Text>% of budget</InputGroup.Text>
                         </InputGroup>
-                    </div>
+                        {errorOfPage2.budgetPercentErr?<p className='error-text'>{errorOfPage2.budgetPercentErr}</p>:""}
+
+                    </Form.Group>
                 </Tab>
 
                 {/* Fixed Fee Tab */}

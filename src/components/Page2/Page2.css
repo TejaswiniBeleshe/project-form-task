@@ -40,3 +40,9 @@
     font-size: 14px;
     color: #777;
 }
+.error-text {
+    color: red;
+    /* border: 1px solid red; */
+    font-size: 14px;
+    margin-top: 5px;
+  }

@@ -45,23 +45,26 @@ function FormSlide() {
   const validateDataOfPage2 = (data)=>{
     const {hourlyRate,budgetType,resetEveryMonth,budgetPercent,sendMail} = data
     //  hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""}
-    const hourlyRateErr = ''
+    let hourlyRateErr = ''
     if(!hourlyRate.trim()){
       hourlyRateErr = 'please add charge per hour'
     }
 
-    const budgetTypeErr = ''
+    let budgetTypeErr = ''
     if(!budgetType){
       budgetTypeErr = 'select how you calculate budget'
     }
 
-    const budgetPercentErr = '';
+    let budgetPercentErr = '';
     
     if(sendMail){
       if(!Number(budgetPercent)){
         budgetPercentErr = 'add appropriate burget percent to track'
       }
     }
+
+    setErrorOfPage2({hourlyRateErr,budgetPercentErr,budgetTypeErr})
+    return {hourlyRateErr,budgetPercentErr,budgetTypeErr}
 
   }
 
@@ -75,6 +78,13 @@ function FormSlide() {
     //     return
     //  }
     // }
+
+    if(currentpage == 1){
+      let errors = validateDataOfPage2(dataOfPage2);
+      if(errors.hourlyRateErr || errors.budgetTypeErr || errors.budgetPercentErr){
+        return
+      }
+    }
     
     
     sliderRef.slickNext();
@@ -112,7 +122,7 @@ function FormSlide() {
           <Page1 dataOfPage1={dataOfPage1} setDataOfPage1={setDataOfPage1} errorOfPage1={errorOfPage1} setErrorOfPage1={setErrorOfPage1}/>
         </div>
         <div key={2}>
-          <Page2 dataOfPage2={dataOfPage2} setDataOfPage2={setDataOfPage2} errorOfPage2={errorOfPage2} setErrorOfPage2={setDataOfPage2}/>
+          <Page2 dataOfPage2={dataOfPage2} setDataOfPage2={setDataOfPage2} errorOfPage2={errorOfPage2} setErrorOfPage2={setErrorOfPage2}/>
         </div>
         <div key={3}>
           <Page3/>
