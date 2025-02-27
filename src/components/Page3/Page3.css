@@ -46,10 +46,16 @@
   }
   
   /* Active selection styling */
-  .view-card:active {
+  .view-card:active{
     border-color: #007bff;
     background: #f0f7ff;
   }
+  .selected{
+    border-color: #007bff;
+    background: #f0f7ff;
+
+  }
+  
   
   /* Icon */
   .view-icon {
@@ -66,6 +72,12 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+  }
+  .error-text {
+    color: red;
+    /* border: 1px solid red; */
+    font-size: 14px;
+    margin-top: 5px;
   }
   
   /* Buttons */

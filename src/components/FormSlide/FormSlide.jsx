@@ -15,6 +15,8 @@ function FormSlide() {
   const [errorOfPage1,setErrorOfPage1] = useState({nameErr:"",clientErr:"",dateErr:"",})
   const [dataOfPage2,setDataOfPage2] = useState({hourlyRate:"",budgetType:"",resetEveryMonth:false,sendMail:false,budgetPercent:""})
   const [errorOfPage2,setErrorOfPage2] = useState({hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""})
+  const [dataOfPage3,setDataOfPage3] = useState({selectedView:"",errorOfSelectedView:""});
+  
   const [currentpage,setCurrentPage] = useState(0)
   let sliderRef = useRef(null);
 
@@ -63,6 +65,7 @@ function FormSlide() {
       }
     }
 
+
     setErrorOfPage2({hourlyRateErr,budgetPercentErr,budgetTypeErr})
     return {hourlyRateErr,budgetPercentErr,budgetTypeErr}
 
@@ -79,11 +82,20 @@ function FormSlide() {
     //  }
     // }
 
-    if(currentpage == 1){
-      let errors = validateDataOfPage2(dataOfPage2);
-      if(errors.hourlyRateErr || errors.budgetTypeErr || errors.budgetPercentErr){
+    // if(currentpage == 1){
+    //   let errors = validateDataOfPage2(dataOfPage2);
+    //   if(errors.hourlyRateErr || errors.budgetTypeErr || errors.budgetPercentErr){
+    //     return
+    //   }
+    // }
+
+    if(currentpage == 2){
+      if(!dataOfPage3.selectedView){
+        setDataOfPage3({...dataOfPage3,errorOfSelectedView:"Please select a view"})
         return
+        
       }
+      // return
     }
     
     
@@ -125,7 +137,7 @@ function FormSlide() {
           <Page2 dataOfPage2={dataOfPage2} setDataOfPage2={setDataOfPage2} errorOfPage2={errorOfPage2} setErrorOfPage2={setErrorOfPage2}/>
         </div>
         <div key={3}>
-          <Page3/>
+          <Page3 dataOfPage3={dataOfPage3} setDataOfPage3={setDataOfPage3}/>
         </div>
         <div key={4}>
           <Page4/>
