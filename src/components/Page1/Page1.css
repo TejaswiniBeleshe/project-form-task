@@ -16,6 +16,13 @@
   .project-form {
     width: 100%;
   }
+  .error-text {
+    color: red;
+    /* border: 1px solid red; */
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
   
 
   
