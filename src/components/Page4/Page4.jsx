@@ -1,4 +1,7 @@
 import "./Page4.css"
+import { SlPeople } from "react-icons/sl";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { IoPersonCircleOutline } from "react-icons/io5";
 const Page4 = function(){
     return(
         <div className="manage-container">
@@ -8,11 +11,12 @@ const Page4 = function(){
             <div className="manage-options">
 
                 <div className="each-option">
-                    <div>
+                       <div className="opt-img">
+                    <FaPeopleGroup size={50}/>
 
                     </div>
 
-                    <div>
+                    <div className="opt-discription">
                         <h5>Everyone</h5>
                         <p>All users can how to see it,but guests connot access the projects</p>
                     </div>
@@ -21,16 +25,27 @@ const Page4 = function(){
 
                 <div className="each-option">
 
-                    <div></div>
+                    <div className="opt-img">
+                    <IoPersonCircleOutline size={50}/>
+                    </div>
 
-                    <div>
+                    <div className="opt-discription">
                         <h5>Only Admin's</h5>
-                        <p></p>
+                        <p>Only admins can manage everything</p>
                     </div>
 
                 </div>
 
                 <div className="each-option">
+                <div className="opt-img">
+                    <SlPeople size={50}/>
+
+                    </div>
+
+                    <div className="opt-discription">
+                        <h5>Only to Specigic people</h5>
+                        <p>Only some people can able to see it</p>
+                    </div>
 
                 </div>
 
