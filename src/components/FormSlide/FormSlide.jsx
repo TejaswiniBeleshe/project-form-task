@@ -14,10 +14,11 @@ function FormSlide() {
   const [dataOfPage1,setDataOfPage1] = useState({projectName:" ",client:"",sDate:"",eDate:"",notes:"",newClient:""});
   const [errorOfPage1,setErrorOfPage1] = useState({nameErr:"",clientErr:"",dateErr:"",})
   const [dataOfPage2,setDataOfPage2] = useState({hourlyRate:"",budgetType:"",resetEveryMonth:false,sendMail:false,budgetPercent:""})
+  const [errorOfPage2,setErrorOfPage2] = useState({hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""})
   const [currentpage,setCurrentPage] = useState(0)
   let sliderRef = useRef(null);
 
-  const validateData = (data)=>{
+  const validateDataOfPage1 = (data)=>{
     const {projectName,client,sDate,eDate,newClient} = data ;
     // console.log(projectName)
     let nameErr = '';
@@ -41,10 +42,35 @@ function FormSlide() {
     return {nameErr,dateErr,clientErr}
   }
 
+  const validateDataOfPage2 = (data)=>{
+    const {hourlyRate,budgetType,resetEveryMonth,budgetPercent,sendMail} = data
+    //  hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""}
+    const hourlyRateErr = ''
+    if(!hourlyRate.trim()){
+      hourlyRateErr = 'please add charge per hour'
+    }
+
+    const budgetTypeErr = ''
+    if(!budgetType){
+      budgetTypeErr = 'select how you calculate budget'
+    }
+
+    const budgetPercentErr = '';
+    
+    if(sendMail){
+      if(!Number(budgetPercent)){
+        budgetPercentErr = 'add appropriate burget percent to track'
+      }
+    }
+
+  }
+
+
+
   const next = () => {
 
     // if(currentpage === 0){
-    //   let errors = validateData(dataOfPage1)
+    //   let errors = validateDataOfPage1(dataOfPage1)
     //   if(errors.nameErr || errors.clientErr || errors.dateErr){
     //     return
     //  }
@@ -86,7 +112,7 @@ function FormSlide() {
           <Page1 dataOfPage1={dataOfPage1} setDataOfPage1={setDataOfPage1} errorOfPage1={errorOfPage1} setErrorOfPage1={setErrorOfPage1}/>
         </div>
         <div key={2}>
-          <Page2 dataOfPage2={dataOfPage2} setDataOfPage2={setDataOfPage2} />
+          <Page2 dataOfPage2={dataOfPage2} setDataOfPage2={setDataOfPage2} errorOfPage2={errorOfPage2} setErrorOfPage2={setDataOfPage2}/>
         </div>
         <div key={3}>
           <Page3/>

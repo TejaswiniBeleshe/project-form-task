@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import "./Page2.css";
 import { useEffect } from 'react';
 
-const Page2 = function ({dataOfPage2,setDataOfPage2}) {
+const Page2 = function ({dataOfPage2,setDataOfPage2,errorOfPage2,setErrorOfPage2}) {
     const {hourlyRate,budgetType,resetEveryMonth,budgetPercent,sendMail} = dataOfPage2;
 
     // useEffect(()=>{
