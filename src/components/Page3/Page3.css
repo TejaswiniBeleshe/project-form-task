@@ -1,0 +1,73 @@
+/* Container for the whole view */
+.view-container {
+    width: 100%;
+   
+    padding: 24px;
+   
+    text-align: center;
+    margin: auto;
+  }
+  
+  /* Title and subtitle */
+  .view-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  
+  .view-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  /* Options container */
+  .view-options {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Each option card */
+  .view-card {
+    width: 200px;
+    height: 160px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Active selection styling */
+  .view-card:active {
+    border-color: #007bff;
+    background: #f0f7ff;
+  }
+  
+  /* Icon */
+  .view-icon {
+    color: #333;
+  }
+  
+  /* Label */
+  .view-label {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .view-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Buttons */
+
+  

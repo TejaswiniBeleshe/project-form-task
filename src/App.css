@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+@media(max-width:500px){
+  .App{
+    overflow-x:hidden;
+    border: 1px solid red;
+    /* width: 90%; */
+    overflow-y: hidden;
+  }
+}
