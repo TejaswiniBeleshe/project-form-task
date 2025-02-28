@@ -11,6 +11,7 @@ const Home = ({allData,setAllData})=>{
     
     return(
       <div>
+        {allData && allData.projectName ? <>
         <h2 className="text-center">Selected Data</h2>
         <h5>ProjectName:{allData.projectName}</h5>
         <h5>Client:{allData.client?allData.client:allData.newClient}</h5>
@@ -24,6 +25,7 @@ const Home = ({allData,setAllData})=>{
         <h5>Access of Preject : {allData.projectAccess}</h5>
 
         <button className="btn btn-danger" onClick={handleClear}>Clear Data</button>
+        </>:<h4 className="text-center">Loading</h4>}
       </div>
     )
 }
