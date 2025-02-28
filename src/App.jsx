@@ -4,18 +4,34 @@ import './App.css'
 import FormSlide from './components/FormSlide/FormSlide.jsx'
 import Home from './components/Home/Home.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { IoEllipseSharp } from 'react-icons/io5';
 
-// let data = JSON.parse(localStorage.getItem('Data'))
-// let res = data.projectName?true:false
+
 // console.log(data)
 function App() {
+   const [allData,setAllData] = useState({})
+   const [state,setState] = useState(true)
+  //  const [reload,setReload] = useState(true)
   // let [exist,setExist] = useState(res)
    
-  // console.log(res)
+  
+
+   useEffect(()=>{
+    let data = JSON.parse(localStorage.getItem('Data'))
+    // console.log(data)
+    
+    if(data && data.length > 11){
+      setAllData(true)
+      setState(data)
+    }else{
+      setAllData({})
+      setState(false)
+    }
+   },[])
 
   return (
     <div className='App'>
-      <FormSlide/>
+    {state?<Home allData={allData} setAllData={setAllData} />:<FormSlide allData={allData} setAllData={setAllData} />}
     </div>
   )
 }

@@ -11,14 +11,14 @@ import Home from "../Home/Home";
 
 
 
-function FormSlide() {
+function FormSlide({allData,setAllData}) {
   const [dataOfPage1,setDataOfPage1] = useState({projectName:" ",client:"",sDate:"",eDate:"",notes:"",newClient:""});
   const [errorOfPage1,setErrorOfPage1] = useState({nameErr:"",clientErr:"",dateErr:"",})
   const [dataOfPage2,setDataOfPage2] = useState({hourlyRate:"",budgetType:"",resetEveryMonth:false,sendMail:false,budgetPercent:""})
   const [errorOfPage2,setErrorOfPage2] = useState({hourlyRateErr:"",budgetTypeErr:"",budgetPercentErr:""})
   const [dataOfPage3,setDataOfPage3] = useState({selectedView:"",errorOfSelectedView:""});
   const [dataOfPage4,setDataOfPage4] = useState({projectAccess:"",errorOfProjectAccess:""})
-  
+ 
   const [currentpage,setCurrentPage] = useState(0)
   let sliderRef = useRef(null);
 
@@ -106,7 +106,9 @@ function FormSlide() {
         return
       }
     }
-    
+    let all_data = {...dataOfPage1, ...dataOfPage2, ...dataOfPage3, ...dataOfPage4}
+    setAllData(all_data)
+    localStorage.setItem("Data",JSON.stringify(all_data))
     
     sliderRef.slickNext();
 
@@ -152,7 +154,7 @@ function FormSlide() {
           <Page4 dataOfPage4={dataOfPage4} setDataOfPage4={setDataOfPage4}/>
         </div>
         <div key={5}>
-          <Home dataOfPage1={dataOfPage1} dataOfPage2={dataOfPage2} dataOfPage3={dataOfPage3} dataOfPage4={dataOfPage4}/>
+          <Home allData={allData} setAllData={setAllData}/>
         </div>
 
       </Slider>
