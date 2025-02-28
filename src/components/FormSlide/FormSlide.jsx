@@ -159,12 +159,12 @@ function FormSlide({allData,setAllData}) {
 
       </Slider>
       <div className="slide-btns">
-        {!currentpage==4?<><button className="button" onClick={previous}>
+        {currentpage === 4?"":<button className="button" onClick={previous}>
           Previous
-        </button>
-        <button className="button" onClick={next}>
+        </button>}
+        {currentpage === 4?"":<button className="button" onClick={next}>
           {currentpage === 3?"Create":"Next"}
-        </button></>:""}
+        </button>}
       </div>
     </div>
   );
