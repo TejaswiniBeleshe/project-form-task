@@ -1,23 +1,6 @@
-import React, { useEffect, useState } from "react"
 
 const Home = ({allData,setAllData})=>{
-    // const [allData,setAllData] = useState({})
-    // useEffect(()=>{
-    //     let res = {...dataOfPage1, ...dataOfPage2, ...dataOfPage3, ...dataOfPage4}
-    //     localStorage.setItem("Data",JSON.stringify(res))
-    // },[dataOfPage1,dataOfPage2,dataOfPage3,dataOfPage4])
-    // useEffect(()=>{
-    //     // let data = {...dataOfPage1,dataOfPage2,dataOfPage3,dataOfPage4}
-    //     let data = JSON.parse(localStorage.getItem('Data'))
-    //     console.log(data)
-    //     if(data.ProjectName){
-    //         setAllData(data)
-    //     //    localStorage.setItem("Data",JSON.stringify(data))
-    //     }else{
-    //         localStorage.setItem("Data",JSON.stringify({}))
-    //     }
-    // },[])
-
+   
     const handleClear = function(){
       localStorage.removeItem("Data")
        

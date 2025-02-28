@@ -1,4 +1,3 @@
-
 import { MdTableRows } from "react-icons/md";
 import { HiViewColumns } from "react-icons/hi2";
 import "./Page3.css";
