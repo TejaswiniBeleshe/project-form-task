@@ -5,7 +5,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 const Page4 = function({dataOfPage4,setDataOfPage4}){
     return(
         <div className="manage-container">
-            <h2>Who can mange Projects</h2>
+            <h2>Who can manage projects</h2>
             <p>Don't panic -- You can also customize these permissions in settings</p>
 
             <div className="manage-options">
@@ -18,7 +18,7 @@ const Page4 = function({dataOfPage4,setDataOfPage4}){
 
                     <div className="opt-discription" >
                         <h5>Everyone</h5>
-                        <p>All users can how to see it,but guests connot access the projects</p>
+                        <p>All users can now to see it, but guests cannot access the projects.</p>
                     </div>
 
                 </div>
@@ -31,7 +31,7 @@ const Page4 = function({dataOfPage4,setDataOfPage4}){
 
                     <div className="opt-discription">
                         <h5>Only Admin's</h5>
-                        <p>Only admins can manage everything</p>
+                        <p>Only admins can manage everything.</p>
                     </div>
 
                 </div>
@@ -43,8 +43,8 @@ const Page4 = function({dataOfPage4,setDataOfPage4}){
                     </div>
 
                     <div className="opt-discription">
-                        <h5>Only to Specigic people</h5>
-                        <p>Only some people can able to see it</p>
+                        <h5>Only to Specific people</h5>
+                        <p>Only some specific People can able to see it.</p>
                     </div>
 
                 </div>

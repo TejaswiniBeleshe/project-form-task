@@ -29,7 +29,7 @@ const Page1 = ({ dataOfPage1, setDataOfPage1,errorOfPage1,setErrorOfPage1 }) => 
           <Form.Label>Project name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter project name here"
+            placeholder="Enter Project name here"
             value={dataOfPage1.projectName}
             onClick={handleHideError}
             onChange={(e)=>setDataOfPage1({ ...dataOfPage1, projectName: e.target.value })

@@ -28,6 +28,7 @@ const Home = ({allData,setAllData})=>{
     
     return(
       <div>
+        <h2 className="text-center">Selected Data</h2>
         <h5>ProjectName:{allData.projectName}</h5>
         <h5>Client:{allData.client?allData.client:allData.newClient}</h5>
         <h5>Date:{allData.sDate} to {allData.eDate}</h5>
@@ -39,7 +40,7 @@ const Home = ({allData,setAllData})=>{
         <h5>Preferred view : {allData.selectedView}</h5>
         <h5>Access of Preject : {allData.projectAccess}</h5>
 
-        <button className="p2" onClick={handleClear}>Clear Data</button>
+        <button className="btn btn-danger" onClick={handleClear}>Clear Data</button>
       </div>
     )
 }

@@ -19,10 +19,9 @@ function App() {
    useEffect(()=>{
     let data = JSON.parse(localStorage.getItem('Data'))
     // console.log(data)
-    
-    if(data && data.length > 11){
-      setAllData(true)
-      setState(data)
+    if(data && data.projectName){
+      setAllData(data)
+      setState(true)
     }else{
       setAllData({})
       setState(false)

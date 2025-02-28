@@ -75,7 +75,7 @@ const Page2 = function ({dataOfPage2,setDataOfPage2,errorOfPage2,setErrorOfPage2
                                 setDataOfPage2({...dataOfPage2,sendMail:!sendMail})}}
                         />
                         <InputGroup className="mt-2">
-                            <Form.Control type="number" disabled={!sendMail} placeholder="80.00" value={budgetPercent} onChange={(e)=>setDataOfPage2({...dataOfPage2,budgetPercent:e.target.value})}/>
+                            <Form.Control  type="number" disabled={!sendMail} placeholder="80.00" value={budgetPercent} onChange={(e)=>setDataOfPage2({...dataOfPage2,budgetPercent:e.target.value})}/>
                             <InputGroup.Text>% of budget</InputGroup.Text>
                         </InputGroup>
                         {errorOfPage2.budgetPercentErr?<p className='error-text'>{errorOfPage2.budgetPercentErr}</p>:""}

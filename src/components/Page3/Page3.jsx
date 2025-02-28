@@ -6,7 +6,7 @@ import "./Page3.css";
 const Page3 = function ({dataOfPage3,setDataOfPage3}) {
   return (
     <div className="view-container">
-      <h2 className="view-title">Select a view</h2>
+      <h2 className="view-title ">Select a view</h2>
       <p className="view-subtitle">You can also customize this view in settings</p>
       
       <div className="view-options">
